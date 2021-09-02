@@ -15,7 +15,13 @@ export default function Description({ lang }) {
   return (
     <div className="flex flex-col items-center mt-2 mb-6">
       <div className="mb-4">
-        <Image height={80} width={80} src="/images/avatar.png" />
+        <Image
+          className="rounded-full"
+          height={80}
+          width={80}
+          src="/images/avatar.png"
+          alt="avatar"
+        />
       </div>
 
       <div className="font-semibold">{descriptions[lang]}</div>

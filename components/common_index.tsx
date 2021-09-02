@@ -14,7 +14,7 @@ export default function CommonHome({ post_data, lang }) {
     const anchor = (
       <a
         style={{ textDecoration: "none" }}
-        className={`text-2xl text-green-600 mb-2 `}
+        className={`text-2xl text-green-600 dark:text-green-200 mb-2 `}
       >
         <h1 className={`${style.postTitle}`}>{post.title}</h1>
       </a>
@@ -28,7 +28,7 @@ export default function CommonHome({ post_data, lang }) {
   };
 
   return (
-    <Layout home lang={lang}>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -40,13 +40,15 @@ export default function CommonHome({ post_data, lang }) {
             {post_data.map((post) => (
               <div className="flex flex-col justify-center my-4" key={post.id}>
                 {get_title(lang, post)}
-                <div className="text-sm">
+                <div className="text-sm mb-2">
                   <Date
-                    className={`${style.postDate} text-gray-600`}
+                    className={`${style.postDate}  text-gray-600 dark:text-white`}
                     dateString={post.date}
                   />
                 </div>
-                <div className={` ${style.potsSummary} text-gray-900`}>
+                <div
+                  className={` ${style.potsSummary} text-gray-900 dark:text-white`}
+                >
                   {post.summary}
                 </div>
               </div>
@@ -54,6 +56,6 @@ export default function CommonHome({ post_data, lang }) {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

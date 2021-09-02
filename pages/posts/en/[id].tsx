@@ -1,7 +1,7 @@
 import Head from "next/head";
 import CommonPost from "../../../components/common_id_posts";
+import Layout from "../../../components/layout";
 import { getAllPostIds, getPostData } from "../../../lib/posts";
-
 const posts_directory = "posts/en";
 const lang = "en";
 
@@ -22,6 +22,15 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Post({ postData }) {
-  return <CommonPost post_data={postData} lang={lang} />;
+export default function Post({ postData, dark_mode, set_dark_mode }) {
+  return (
+    <Layout
+      home={false}
+      lang="en"
+      dark_mode={dark_mode}
+      set_dark_mode={set_dark_mode}
+    >
+      <CommonPost post_data={postData} lang={lang} />;
+    </Layout>
+  );
 }

@@ -1,9 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import React, { useState, useEffect } from "react";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html className="">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />

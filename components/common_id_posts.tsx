@@ -8,7 +8,7 @@ import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 export default function CommonPost({ post_data, lang }) {
   return (
-    <Layout home={false} lang={lang}>
+    <>
       <Head>
         <title>{post_data.title}</title>
       </Head>
@@ -16,7 +16,7 @@ export default function CommonPost({ post_data, lang }) {
         <h1 className={`${style.PostDataTitle}`}>{post_data.title}</h1>
         <div>
           <Date
-            className={`${style.PostDataTime} text-gray-700`}
+            className={`${style.PostDataTime} text-gray-700 dark:text-green-200`}
             dateString={post_data.date}
           />
         </div>
@@ -37,6 +37,6 @@ export default function CommonPost({ post_data, lang }) {
           {post_data.contentMarkdown}
         </ReactMarkdown>
       </article>
-    </Layout>
+    </>
   );
 }

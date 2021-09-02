@@ -10,7 +10,9 @@ body {
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   font-family:'Merriweather', Georgia, serif;
    line-height: 1.6;
-  font-size: 18px
+  font-size: 18px;
+  /* background-color: gray; */
+  /* color:white; */
 }
 
 * {

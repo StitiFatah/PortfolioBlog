@@ -13,8 +13,9 @@ font-weight:900;
 }
 
 .postDate{
-font-size:12px;
-line-height:22px
+font-size:14px;
+/* line-height:22px; */
+letter-spacing:1px;
 }
 
 .postSummary{

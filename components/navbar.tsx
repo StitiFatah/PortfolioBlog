@@ -5,7 +5,13 @@ import DarkMode from "./darkmode";
 import LangageSwitcher from "./langage_switcher";
 import style from "../styles/utils.module.css";
 
-export default function Navbar({ home, blog_name, lang }) {
+export default function Navbar({
+  home,
+  blog_name,
+  lang,
+  dark_mode,
+  set_dark_mode,
+}) {
   const home_link = (lang) => {
     if (lang === "fr") {
       return "/";
@@ -16,7 +22,7 @@ export default function Navbar({ home, blog_name, lang }) {
 
   const get_name = (home, lang) => {
     const get_name_class = `${style.blogTitle} ${
-      home ? "text-black" : "text-green-700"
+      home ? "text-black dark:text-white" : "text-green-700 dark:text-green-200"
     } `;
     if (home) {
       return <div className={get_name_class}> {blog_name}</div>;
@@ -39,7 +45,7 @@ export default function Navbar({ home, blog_name, lang }) {
         <div className="mx-2">
           <LangageSwitcher actual_langage={lang} />
         </div>
-        <DarkMode />
+        <DarkMode dark_mode={dark_mode} set_dark_mode={set_dark_mode} />
       </div>
     </div>
   );

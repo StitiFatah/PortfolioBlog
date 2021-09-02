@@ -4,6 +4,8 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Navbar from "./navbar";
+import React, { useState, useEffect } from "react";
+import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 const name = "Stiti Fatah";
 export const siteTitle = "Fatah Stiti -- Blog Potfolio";
@@ -48,9 +50,15 @@ const get_image = () => {
   );
 };
 
-export default function Layout({ children, home, lang }) {
+export default function Layout({
+  children,
+  home,
+  lang,
+  dark_mode,
+  set_dark_mode,
+}) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} dark:text-white`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -67,10 +75,15 @@ export default function Layout({ children, home, lang }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
-        <Navbar home={home} lang={lang} blog_name={blog_name} />
+        <Navbar
+          home={home}
+          lang={lang}
+          blog_name={blog_name}
+          dark_mode={dark_mode}
+          set_dark_mode={set_dark_mode}
+        />
       </header>
-
-      <main>{children}</main>
+      <main className="">{children}</main>
       {!home && <div className="">{get_back_to_home_link(lang)}</div>}
     </div>
   );

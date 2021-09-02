@@ -19,6 +19,15 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allPostsData }) {
-  return <CommonHome post_data={allPostsData} lang={lang} />;
+export default function Home({ allPostsData, dark_mode, set_dark_mode }) {
+  return (
+    <Layout
+      home={true}
+      lang="en"
+      dark_mode={dark_mode}
+      set_dark_mode={set_dark_mode}
+    >
+      <CommonHome post_data={allPostsData} lang={lang} />;
+    </Layout>
+  );
 }

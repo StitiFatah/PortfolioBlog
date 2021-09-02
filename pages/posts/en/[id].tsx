@@ -30,7 +30,7 @@ export default function Post({ postData, dark_mode, set_dark_mode }) {
       dark_mode={dark_mode}
       set_dark_mode={set_dark_mode}
     >
-      <CommonPost post_data={postData} lang={lang} />;
+      <CommonPost post_data={postData} lang={lang} />
     </Layout>
   );
 }

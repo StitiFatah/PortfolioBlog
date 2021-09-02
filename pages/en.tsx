@@ -27,7 +27,7 @@ export default function Home({ allPostsData, dark_mode, set_dark_mode }) {
       dark_mode={dark_mode}
       set_dark_mode={set_dark_mode}
     >
-      <CommonHome post_data={allPostsData} lang={lang} />;
+      <CommonHome post_data={allPostsData} lang={lang} />
     </Layout>
   );
 }

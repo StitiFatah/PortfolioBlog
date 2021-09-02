@@ -1,0 +1,46 @@
+import Link from "next/link";
+import * as React from "react";
+import { useState, useEffect } from "react";
+import DarkMode from "./darkmode";
+import LangageSwitcher from "./langage_switcher";
+import style from "../styles/utils.module.css";
+
+export default function Navbar({ home, blog_name, lang }) {
+  const home_link = (lang) => {
+    if (lang === "fr") {
+      return "/";
+    } else if (lang === "en") {
+      return "/en";
+    }
+  };
+
+  const get_name = (home, lang) => {
+    const get_name_class = `${style.blogTitle} ${
+      home ? "text-black" : "text-green-700"
+    } `;
+    if (home) {
+      return <div className={get_name_class}> {blog_name}</div>;
+    } else {
+      return (
+        <Link href={home_link(lang)}>
+          <a style={{ textDecoration: "none" }} className={get_name_class}>
+            {blog_name}
+          </a>
+        </Link>
+      );
+    }
+  };
+
+  return (
+    <div className="flex flex-row justify-between items-center my-11">
+      {get_name(home, lang)}
+
+      <div className="flex flex-row items-center">
+        <div className="mx-2">
+          <LangageSwitcher actual_langage={lang} />
+        </div>
+        <DarkMode />
+      </div>
+    </div>
+  );
+}

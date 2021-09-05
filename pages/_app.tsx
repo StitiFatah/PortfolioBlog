@@ -4,15 +4,15 @@ import React, { useState, useEffect } from "react";
 const darkbgcolor = "#282C35";
 
 const initial_color_mode = () => {
-  // if (typeof window !== "undefined") {
-  const ls_dark_mode = localStorage.getItem("fs_blog_dark_mode");
-  if (ls_dark_mode === "dark") {
-    console.log("initial dark theme");
-    return true;
+  if (typeof window !== "undefined") {
+    const ls_dark_mode = localStorage.getItem("fs_blog_dark_mode");
+    if (ls_dark_mode === "dark") {
+      console.log("initial dark theme");
+      return true;
+    }
+    console.log("initial white theme");
+    return false;
   }
-  console.log("initial white theme");
-  return false;
-  // }
 };
 
 const set_styles_to_dark = () => {
@@ -38,11 +38,11 @@ const set_ls_to = (dark_white) => {
 export default function App({ Component, pageProps }) {
   // initial theme
 
-  const [dark, setDark] = useState(null);
+  const [dark, setDark] = useState(() => initial_color_mode());
 
-  useEffect(() => {
-    setDark(initial_color_mode());
-  }, []);
+  // useEffect(() => {
+  //   setDark(initial_color_mode());
+  // }, []);
 
   // Reactive
 

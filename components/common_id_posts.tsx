@@ -12,11 +12,16 @@ export default function CommonPost({ post_data, lang }) {
       <Head>
         <title>{post_data.title}</title>
       </Head>
-      <article>
-        <h1 className={`${style.PostDataTitle}`}>{post_data.title}</h1>
-        <div>
+      <article className="prose dark:prose-dark">
+        <h1
+          className={`${style.PostDataTitle} mb-0'`}
+          style={{ marginBottom: 0 }}
+        >
+          {post_data.title}
+        </h1>
+        <div className="mb-4">
           <Date
-            className={`${style.PostDataTime} text-gray-700 dark:text-green-200`}
+            className={`${style.PostDateTime} text-gray-700 dark:text-green-200 `}
             dateString={post_data.date}
           />
         </div>

@@ -58,7 +58,7 @@ export default function Layout({
   set_dark_mode,
 }) {
   return (
-    <div className={`${styles.container} dark:text-white`}>
+    <div className={`${styles.container}`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta

@@ -28,10 +28,10 @@ line-height:28px
 .PostDataTitle{
     font-size: 36px;
     letter-spacing: -1px;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.2rem !important;
 
 }
 
-.PostDataTime{
-    font-size: 14px;
+.PostDateTime{
+    font-size: 16px;
 }

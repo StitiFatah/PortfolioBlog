@@ -24,7 +24,7 @@ export default function Description({ lang }) {
         />
       </div>
 
-      <div className="font-semibold">{descriptions[lang]}</div>
+      <div className="font-semibold dark:text-white">{descriptions[lang]}</div>
     </div>
   );
 }

@@ -5,9 +5,13 @@ import { useState, useEffect } from "react";
 export default function Description({ lang }) {
   const descriptions = {
     fr: ` Bonjour c'est Fatah, développeur fullstack autodidacte et linux
-        enthousiate qui développe actuellement sous Django et React ! Vous pouvez voir ci-dessous certains de mes projets.`,
+        enthousiate qui développe actuellement sous Django et React ! Vous pouvez voir ci-dessous certains de mes projets.
+        Github : https://github.com/StitiFatah/
+        `,
+
     en: `Hello I'm Fatah, a self taught full stack software developper and  linux enthusiast
-        who loves Django and React ! I'll be describing some of my coding projects here.`,
+        who loves Django and React ! I'll be describing some of my coding projects here.
+        Github : https://github.com/StitiFatah/`,
   };
 
   return (

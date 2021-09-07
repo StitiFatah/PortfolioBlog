@@ -1,7 +1,7 @@
 ---
 title: "SuperShop"
 date: "2021-09-04"
-summary: "Presentation de SUperShop, une WebAPp Ecommerce avec gestion des commandes interactives en direct. Django/React"
+summary: "Presentation de SuperShop, une WebApp Ecommerce avec gestion de commandes interactives en direct. Django/React"
 ---
 
 **Liens Github**:

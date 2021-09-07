@@ -6,12 +6,11 @@ export default function Description({ lang }) {
   const descriptions = {
     fr: ` Bonjour c'est Fatah, développeur fullstack autodidacte et linux
         enthousiate qui développe actuellement sous Django et React ! Vous pouvez voir ci-dessous certains de mes projets.
-        Github : https://github.com/StitiFatah/
         `,
 
     en: `Hello I'm Fatah, a self taught full stack software developper and  linux enthusiast
         who loves Django and React ! I'll be describing some of my coding projects here.
-        Github : https://github.com/StitiFatah/`,
+        `,
   };
 
   return (
@@ -26,7 +25,19 @@ export default function Description({ lang }) {
         />
       </div>
 
-      <div className="font-semibold dark:text-white">{descriptions[lang]}</div>
+      <div className="font-semibold dark:text-white">
+        {descriptions[lang]}
+        <div>
+          Github :{" "}
+          <a
+            href="https://github.com/StitiFatah/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://github.com/StitiFatah/
+          </a>{" "}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 ---
 title: "Technews Project"
 date: "2021-09-05"
-summary: "Presentation of technews, a website with tech related news"
+summary: "Overview of technews, a website with tech related news"
 ---
 
 **Github Link** : <https://github.com/StitiFatah/technews1>
@@ -9,6 +9,8 @@ summary: "Presentation of technews, a website with tech related news"
 **Hosted at** : <http://45.33.13.12>
 
 **Stack** : Django, DRF, Celery, VueJs (previously vanilla JS/JQuery)
+
+**Test User** : username : test@test.com, password: test
 
 ## Context
 
@@ -66,7 +68,7 @@ with the argument being yes or no to instruct the script if it should search for
 
 ```
 
-When a source is finally added to the database, its rss link will then be parsed the next time Celery kicks offs the registered tasks to do so and articles will be stored too. The article creation ste is handled by the [creating articles](https://github.com/StitiFatah/technews1/blob/master/main_app/functions.py). This function handles aall the needed logic to add articles to the database, it will first check if the availables sources need to be parsed by comparing the etag or last_modified fields available in the database to those in the rss file, if these one match that means no new articles have been published from this source since the last parsing, and the script can naturally skip it. It's good to note that some rss links neither provide etag or last_modified tags, in such cases an hash is generated via hashlib to perform the comparison.
+When a source is finally added to the database, its rss link will then be parsed the next time Celery kicks offs the registered tasks to do so and articles will be stored too. The article creation ste is handled by the [creating articles](https://github.com/StitiFatah/technews1/blob/master/main_app/functions.py). This function handles all the needed logic to add articles to the database, it will first check if the availables sources need to be parsed by comparing the etag or last_modified fields available in the database to those in the rss file, if these one match that means no new articles have been published from this source since the last parsing, and the script can naturally skip it. It's good to note that some rss links neither provide etag or last_modified tags, in such cases an hash is generated via hashlib to perform the comparison.
 
 In the other hand if the caches don't match the script will then compare the title of each new article published by the source with the recent ones added (last day in this case) to the database to unsure similar articles haven't already been saved. This comparison is performed using Fuzzy string matching ( Levenshtein Distance) wuth the help of the [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) library.
 
@@ -84,7 +86,6 @@ Users can perform nasic operations to filter which articles are displayed to the
 ```javascript
 
 toggle_save(article) {
-      console.log();
       let endpoint = `/api/toog_art_sav/${article.id}/`;
       apiService(endpoint).then((data) => {
         if (data.saved) {
@@ -154,11 +155,11 @@ Want to know about the new phone from Google ?
 
 ## The Frontend
 
-The Frontend is also rather simple, the style part is handled by vanilla Css and Bootstrap 5 (previously bootstrap 4), Bootstrap JS is also in charge of handling some js parts lioke toasts or modals.
+The Frontend is also rather simple, the style part is handled by vanilla Css and Bootstrap 5 (previously bootstrap 4), Bootstrap JS is also in charge of handling some js parts like toasts or modals.
 
 VueJs loaded via a CDN in the [root](https://github.com/StitiFatah/technews1/blob/master/templates/api/base.html) django templates is responsible for displaying articles and handling operations like saving,blacklisting and searching. All the vue files are located in the [static file directory](https://github.com/StitiFatah/technews1/tree/master/static_in_env/js/api).
 
-The main vueJS components is [category*page_vue*.js](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/category_page_vue.js) which despite its name handle the frontend for home,category,sources and saved pages. It takes 3 props which are :
+The main vueJS components is [category_page_vue.js](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/category_page_vue.js) which despite its name handle the frontend for home,category,sources and saved pages. It takes 3 props which are :
 
 ```javascript
  props: {
@@ -178,11 +179,10 @@ The main vueJS components is [category*page_vue*.js](https://github.com/StitiFat
       required: true,
     },
   }
-
 ```
 
 This component also render a [skeletton.js](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/skeletton.js) component which display nice loading skelettons before articles are fetched and a [toast.js](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/toasts.js) that is responsible for toasts and modals.
 
-Components for [reddit trends](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/reddit.js), the [saved article's page](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/search_page_vue.js) and the [preference_page](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/preference_page_vue.js) are also used for the frontend.
+Components for [reddit trends](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/reddit.js), the [saved article's page](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/search_page_vue.js) and the [preference page](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/preference_page_vue.js) are also used for the frontend.
 
 Finally all the fetching to call DRF's endpoints is done by [fetch](https://github.com/StitiFatah/technews1/blob/master/static_in_env/js/api/api.service.js)

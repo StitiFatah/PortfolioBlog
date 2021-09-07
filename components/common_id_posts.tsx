@@ -27,6 +27,7 @@ export default function CommonPost({ post_data, lang }) {
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: post_data.contentHtml }} /> */}
         <ReactMarkdown
+          linkTarget="_blank"
           components={{
             code({ className, children }) {
               // Removing "language-" because React-Markdown already added "language-"

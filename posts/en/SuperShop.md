@@ -40,6 +40,7 @@ The code is devided in several apps:
 - Shop manages everything related to products that can be bought, it manages, products, categories and optional collections and sales and coupons that can affect their prices.
 
 Django Signals are heavily used inside the project, weither it's to generate slugs or more complex things like recalculating prices after Sales are created or sending asynchronous messages to channels that handle the live feed part.
+The backend is almost entirely tested via pytest, tests can be found in the "tests" folder of each application.
 
 ## Frontend
 

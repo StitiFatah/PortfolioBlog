@@ -40,6 +40,7 @@ Le code est divisés en plusieurs "applications" Django:
 - "Business" se charge des informations purement relatives au restaurant.
 
 Les signaux Django sont beaucoup utilisés dans le projet, que ce soit pour générer les identifiants uniques "slug", modifier les prix selon l'évolution des promotions ou envoyer des messages asynchrones à Django Channels.
+Le code est quasiment entierement testé via pytest dans les dossiers "tests" de chaque application.
 
 ## Frontend
 

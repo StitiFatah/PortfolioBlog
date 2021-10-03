@@ -3,11 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import Date from "../components/dates";
 import Layout, { siteTitle } from "../components/layout";
-import { getSortedPostsData } from "../lib/posts";
 import style from "../styles/utils.module.css";
 import Description from "./description";
 import * as React from "react";
-import { useState, useEffect } from "react";
+import BlogCard from "./blogCard";
 
 export default function CommonHome({ post_data, lang }) {
   const get_title = (lang, post) => {
@@ -37,7 +36,7 @@ export default function CommonHome({ post_data, lang }) {
       <div>
         <div className="">
           <div className="flex flex-col justify-center">
-            {post_data.map((post) => (
+            {/* {post_data.map((post) => (
               <div className="flex flex-col justify-center my-4" key={post.id}>
                 {get_title(lang, post)}
                 <div className="text-sm mb-2">
@@ -52,6 +51,20 @@ export default function CommonHome({ post_data, lang }) {
                   {post.summary}
                 </div>
               </div>
+            ))} */}
+            {post_data.map((post) => (
+              <BlogCard
+                key={post.id}
+                title={get_title(lang, post)}
+                body={post.summary}
+                stack={["drf", "react", "celery", "tailwind"]}
+                link={{
+                  href: "google.com",
+                  name: "test",
+                }}
+                image={"/images/tn_home.png"}
+                className={"my-2"}
+              />
             ))}
           </div>
         </div>

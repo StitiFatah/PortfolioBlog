@@ -13,7 +13,7 @@ export default function CommonHome({ post_data, lang }) {
     const anchor = (
       <a
         style={{ textDecoration: "none" }}
-        className={`text-2xl text-green-600 dark:text-green-200 mb-2 `}
+        className={`text-2xl text-purple-500 dark:text-purple-200 mb-2 `}
       >
         <h1 className={`${style.postTitle}`}>{post.title}</h1>
       </a>
@@ -25,17 +25,35 @@ export default function CommonHome({ post_data, lang }) {
       return <Link href={`/posts/en/${post.id}`}>{anchor}</Link>;
     }
   };
-
   return (
     <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
 
-      <Description lang={lang} />
+      <Description className="mb-16" lang={lang} />
       <div>
         <div className="">
+          <div></div>
           <div className="flex flex-col justify-center">
+            {post_data.map((post, index) => (
+              <>
+                <BlogCard
+                  key={post.id}
+                  lang={lang}
+                  title={get_title(lang, post)}
+                  date={post.date}
+                  body={post.summary}
+                  stack={post.stack || ["drf", "react", "celery", "tailwind"]}
+                  link={{
+                    href: post.link_href || "google.com",
+                    name: post.link_name || "test",
+                  }}
+                  image={post.image}
+                  className={"my-2"}
+                />
+              </>
+            ))}
             {/* {post_data.map((post) => (
               <div className="flex flex-col justify-center my-4" key={post.id}>
                 {get_title(lang, post)}
@@ -52,20 +70,6 @@ export default function CommonHome({ post_data, lang }) {
                 </div>
               </div>
             ))} */}
-            {post_data.map((post) => (
-              <BlogCard
-                key={post.id}
-                title={get_title(lang, post)}
-                body={post.summary}
-                stack={["drf", "react", "celery", "tailwind"]}
-                link={{
-                  href: "google.com",
-                  name: "test",
-                }}
-                image={"/images/tn_home.png"}
-                className={"my-2"}
-              />
-            ))}
           </div>
         </div>
       </div>

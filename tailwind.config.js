@@ -1,3 +1,5 @@
+const main_color = "purple";
+
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -16,14 +18,14 @@ module.exports = {
           css: {
             color: theme("colors.grey.800"),
             a: {
-              color: theme("colors.green.500"),
+              color: theme(`colors.${main_color}.500`),
               "text-decoration": "underline",
               "&:hover, &.active": {
                 "text-decoration": "none",
               },
             },
             strong: {
-              color: theme("colors.green.500"),
+              color: theme(`colors.${main_color}.500`),
             },
             h1: {
               color: theme("colors.grey.800"),
@@ -77,14 +79,14 @@ module.exports = {
           css: {
             color: "white",
             a: {
-              color: theme("colors.green.500"),
+              color: theme(`colors.${main_color}.500`),
               "text-decoration": "underline",
               "&:hover, &.active": {
                 "text-decoration": "none",
               },
             },
             strong: {
-              color: theme("colors.green.500"),
+              color: theme(`colors.${main_color}.500`),
             },
             h1: {
               color: "white",

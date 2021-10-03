@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Date from "./dates";
 
 interface TypeText {
   title: Element | string;
@@ -9,6 +10,8 @@ interface TypeText {
     href: string;
     name: string;
   };
+  date: string;
+  lang;
 }
 
 interface TypeBlogCard extends TypeText {
@@ -16,23 +19,28 @@ interface TypeBlogCard extends TypeText {
   className?: string;
 }
 
-function Text({ title, body, link, stack }: TypeText) {
+function Text({ title, body, link, stack, date, lang }: TypeText) {
   return (
     <div className="flex flex-col justify-center h-full p-6 ">
       <div className="flex flex-col mb-6">
-        <h2 className="text-2xl font-bold mb-4 text-purple-500">{title}</h2>
-        <p className="text-gray-700 ">{body}</p>
+        {title}
+        <div className="text-sm mb-4">
+          <Date className={`text-gray-500 dark:text-white`} dateString={date} />
+        </div>
+        <p className="text-gray-600 dark:text-white ">{body}</p>
       </div>
 
       <div className="mb-4">
-        <div className="mb-4 font-semibold text-gray-500 text-xs">
-          USED STACK:
+        <div className="mb-2 font-semibold text-gray-500 dark:text-white text-xs uppercase">
+          {lang === "fr" && "Technologies utilisees"}
+          {lang === "en" && "Used stack"}
+          {":"}
         </div>
         <div className="flex  flex-wrap items-center ">
           {stack.map((elem, index) => (
             <div
               key={index}
-              className="border shadow-md mx-2 px-2 py-1 rounded my-1 text-xs text-gray-500 "
+              className="border shadow-md mx-2 px-2 py-1 rounded my-1 text-xs text-gray-500 dark:text-white "
             >
               {elem}
             </div>
@@ -42,7 +50,9 @@ function Text({ title, body, link, stack }: TypeText) {
       {link && (
         <div className="flex flex-row justify-end">
           <Link href={link.href}>
-            <a className="text-purple-500 font-semibold"> {link.name}</a>
+            <a className="text-sm text-purple-500 dark:text-purple-200">
+              {link.name}
+            </a>
           </Link>
         </div>
       )}
@@ -57,8 +67,10 @@ export default function BlogCard({
   link,
   stack,
   className,
+  date,
+  lang,
 }: TypeBlogCard) {
-  const text_props = { title, body, link, stack };
+  const text_props = { lang, title, body, link, stack, date };
 
   return (
     <div
@@ -67,21 +79,22 @@ export default function BlogCard({
       } 
       }`}
     >
-      <div className="md:w-2/5" style={{ fontSize: 0 }}>
-        <div className="photo h-full" />
+      <div className="hidden md:w-2/5 md:block" style={{ fontSize: 0 }}>
+        <div
+          className="photo h-full"
+          style={{ backgroundImage: `url(${image})` }}
+        />
       </div>
       <div className="md:w-3/5 ">
         <Text {...text_props} />
       </div>
       <style>
         {`
-.photo{
-     background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(${image})
-
-}
+        .photo{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        }
             
                   `}
       </style>

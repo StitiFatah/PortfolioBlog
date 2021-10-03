@@ -2,6 +2,10 @@
 title: "Technews Project"
 date: "2021-09-05"
 summary: "Presentation de Technews, un site web d'articles sur la Tech"
+image: "/images/aa_holmes.jpg"
+stack: ["Django Rest Framework", "VueJS", "Celery", "Bootstrap"]
+link_name: "technews.com"
+link_href: "http://45.33.13.12"
 ---
 
 **Lien Github** : <https://github.com/StitiFatah/technews1>

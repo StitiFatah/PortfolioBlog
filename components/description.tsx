@@ -2,7 +2,13 @@ import Image from "next/image";
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-export default function Description({ lang }) {
+export default function Description({
+  lang,
+  className,
+}: {
+  lang: string;
+  className?: string;
+}) {
   const descriptions = {
     fr: ` Bonjour c'est Fatah, développeur fullstack autodidacte et linux
         enthousiate qui développe actuellement sous Django et React ! Vous pouvez voir ci-dessous certains de mes projets.
@@ -14,7 +20,7 @@ export default function Description({ lang }) {
   };
 
   return (
-    <div className="flex flex-col items-center mt-2 mb-6">
+    <div className={`flex flex-col items-center mt-2 mb-6 ${className} `}>
       <div className="mb-4">
         <Image
           className="rounded-full"
@@ -25,7 +31,7 @@ export default function Description({ lang }) {
         />
       </div>
 
-      <div className="font-semibold dark:text-white">
+      <div className="font-semibold dark:text-white text-center">
         {descriptions[lang]}
         <div>
           Github :{" "}

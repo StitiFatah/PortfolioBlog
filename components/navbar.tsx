@@ -22,7 +22,9 @@ export default function Navbar({
 
   const get_name = (home, lang) => {
     const get_name_class = `${style.blogTitle} ${
-      home ? "text-black dark:text-white" : "text-green-700 dark:text-green-200"
+      home
+        ? "text-black dark:text-white"
+        : "text-purple-700 dark:text-purple-200"
     } `;
     if (home) {
       return <div className={get_name_class}> {blog_name}</div>;
@@ -38,7 +40,7 @@ export default function Navbar({
   };
 
   return (
-    <div className="flex flex-row justify-between items-center my-11">
+    <div className="flex flex-row justify-between items-center mt-6 mb-16">
       {get_name(home, lang)}
 
       <div className="flex flex-row items-center">

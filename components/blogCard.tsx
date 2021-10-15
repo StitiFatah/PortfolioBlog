@@ -74,18 +74,18 @@ export default function BlogCard({
 
   return (
     <div
-      className={`flex flex-col md:flex-row border hover:shadow-lg ${
+      className={`flex flex-col lg:flex-row border hover:shadow-lg ${
         className && className
       } 
       }`}
     >
-      <div className="hidden md:w-2/5 md:block" style={{ fontSize: 0 }}>
+      <div className="hidden lg:w-2/5 lg:block" style={{ fontSize: 0 }}>
         <div
           className="photo h-full"
           style={{ backgroundImage: `url(${image})` }}
         />
       </div>
-      <div className="md:w-3/5 ">
+      <div className="lg:w-3/5 ">
         <Text {...text_props} />
       </div>
       <style>

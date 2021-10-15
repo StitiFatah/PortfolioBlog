@@ -2,6 +2,10 @@
 title: "Technews Project"
 date: "2021-09-05"
 summary: "Overview of technews, a website with tech related news"
+image: "/images/aa_holmes.jpg"
+stack: ["DRF", "VueJS", "Celery", "Bootstrap"]
+link_name: "technews.com"
+link_href: "http://45.33.13.12"
 ---
 
 **Github Link** : <https://github.com/StitiFatah/technews1>

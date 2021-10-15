@@ -2,6 +2,7 @@
 title: "Tinier"
 date: "2021-09-03"
 summary: "Un raccourcisseur d'URL développé avec VueJS et Django/DRF"
+stack: ["VueJS", "Celery", "DRF", "BootstrapVue"]
 ---
 
 **Liens Github** :

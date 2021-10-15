@@ -54,8 +54,8 @@ export default function Layout({
   children,
   home,
   lang,
-  dark_mode,
-  set_dark_mode,
+  // dark_mode,
+  // set_dark_mode,
 }) {
   return (
     <div className=" w-3/4 md:w-1/2 mx-auto">
@@ -79,8 +79,8 @@ export default function Layout({
           home={home}
           lang={lang}
           blog_name={blog_name}
-          dark_mode={dark_mode}
-          set_dark_mode={set_dark_mode}
+          // dark_mode={dark_mode}
+          // set_dark_mode={set_dark_mode}
         />
       </header>
       <main className="">{children}</main>

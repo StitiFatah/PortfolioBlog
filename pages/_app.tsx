@@ -15,52 +15,53 @@ const initial_color_mode = () => {
   }
 };
 
-const set_styles_to_dark = () => {
+export const set_styles_to_dark = () => {
   console.log("set style to dark");
   document.querySelector("html").style.background = darkbgcolor;
   document.querySelector("html").classList.add("dark");
 };
 
-const set_styles_to_light = () => {
+export const set_styles_to_light = () => {
   console.log("set style to light");
 
   document.querySelector("html").style.background = "white";
   document.querySelector("html").classList.remove("dark");
 };
 
-const set_ls_to = (dark_white) => {
+export const set_ls_to = (dark_white: "dark" | "light") => {
   localStorage.setItem(
     "fs_blog_dark_mode",
     dark_white === "dark" ? "dark" : "light"
   );
 };
 
+const DarkContext = React.createContext(undefined);
+
+const useDarkModeValues = () => {
+  const [dark, setDark] = useState<boolean>(() => initial_color_mode());
+  const values = [dark, setDark];
+
+  return values;
+};
+
+const DarkModeContextProvider = (props) => {
+  const values = useDarkModeValues();
+
+  return <DarkContext.Provider value={values} {...props} />;
+};
+
+export const useDarkMode = () => {
+  const context = React.useContext(DarkContext);
+  if (!context) {
+    throw new Error("This Should be wrapped inside a DarkModeContextProvider");
+  }
+  return context;
+};
+
 export default function App({ Component, pageProps }) {
-  // initial theme
-
-  const [dark, setDark] = useState(() => initial_color_mode());
-
-  // useEffect(() => {
-  //   setDark(initial_color_mode());
-  // }, []);
-
-  // Reactive
-
-  useEffect(() => {
-    console.log("App useEffect");
-
-    if (dark !== null) {
-      console.log("App useEffect validated");
-
-      if (dark) {
-        set_styles_to_dark();
-        set_ls_to("dark");
-      } else {
-        set_styles_to_light();
-        set_ls_to("light");
-      }
-    }
-  }, [dark]);
-
-  return <Component dark_mode={dark} set_dark_mode={setDark} {...pageProps} />;
+  return (
+    <DarkModeContextProvider>
+      <Component {...pageProps} />
+    </DarkModeContextProvider>
+  );
 }

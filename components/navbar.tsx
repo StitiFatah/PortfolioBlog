@@ -9,8 +9,8 @@ export default function Navbar({
   home,
   blog_name,
   lang,
-  dark_mode,
-  set_dark_mode,
+  // dark_mode,
+  // set_dark_mode,
 }) {
   const home_link = (lang) => {
     if (lang === "fr") {
@@ -47,7 +47,7 @@ export default function Navbar({
         <div className="mx-2">
           <LangageSwitcher actual_langage={lang} />
         </div>
-        <DarkMode dark_mode={dark_mode} set_dark_mode={set_dark_mode} />
+        <DarkMode />
       </div>
     </div>
   );

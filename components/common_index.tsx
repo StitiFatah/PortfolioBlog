@@ -54,22 +54,6 @@ export default function CommonHome({ post_data, lang }) {
                 />
               </>
             ))}
-            {/* {post_data.map((post) => (
-              <div className="flex flex-col justify-center my-4" key={post.id}>
-                {get_title(lang, post)}
-                <div className="text-sm mb-2">
-                  <Date
-                    className={`${style.postDate}  text-gray-600 dark:text-white`}
-                    dateString={post.date}
-                  />
-                </div>
-                <div
-                  className={` ${style.potsSummary} text-gray-900 dark:text-white`}
-                >
-                  {post.summary}
-                </div>
-              </div>
-            ))} */}
           </div>
         </div>
       </div>

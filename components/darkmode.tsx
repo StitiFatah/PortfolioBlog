@@ -31,10 +31,6 @@ export default function DarkMode() {
   }, [dark_mode]);
 
   return (
-    <DarkModeToggle
-      onChange={() => change_mode()}
-      checked={dark_mode}
-      size={50}
-    />
+    <DarkModeToggle onChange={change_mode} checked={dark_mode} size={50} />
   );
 }

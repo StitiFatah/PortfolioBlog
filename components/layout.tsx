@@ -58,7 +58,7 @@ export default function Layout({
   // set_dark_mode,
 }) {
   return (
-    <div className=" w-3/4 md:w-1/2 mx-auto">
+    <div className=" w-full md:w-1/2 mx-auto">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta

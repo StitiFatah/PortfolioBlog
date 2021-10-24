@@ -2,7 +2,9 @@
 title: "Tinier"
 date: "2021-09-03"
 summary: "An Url Shortner SPA made with VueJS + DRF"
----
+link_name: "tinr.me"
+link_href: "https://tinr.me" 
+----
 
 **Githun Links** :
 

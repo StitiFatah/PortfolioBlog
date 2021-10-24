@@ -40,10 +40,10 @@ export default function Navbar({
   };
 
   return (
-    <div className="flex flex-row justify-between items-center mt-6 mb-16">
+    <div className="flex flex-col md:flex-row justify-between items-center mt-6 mb-16">
       {get_name(home, lang)}
 
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center mt-4 md:mt-0">
         <div className="mx-2">
           <LangageSwitcher actual_langage={lang} />
         </div>

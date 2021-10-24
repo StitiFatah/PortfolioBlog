@@ -58,12 +58,12 @@ export default function Layout({
   // set_dark_mode,
 }) {
   return (
-    <div className=" w-full md:w-1/2 mx-auto">
+    <div className=" mx-auto w-11/12  md:w-1/2">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Stiti Fatah's protfolio and blog"
         />
         <meta
           property="og:image"
@@ -74,7 +74,7 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header>
+      <header className="">
         <Navbar
           home={home}
           lang={lang}
@@ -83,7 +83,7 @@ export default function Layout({
           // set_dark_mode={set_dark_mode}
         />
       </header>
-      <main className="">{children}</main>
+      <main className="mx-auto border border-blue-500">{children}</main>
       {!home && <div className="">{get_back_to_home_link(lang)}</div>}
     </div>
   );

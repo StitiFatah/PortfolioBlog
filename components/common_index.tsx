@@ -30,7 +30,6 @@ export default function CommonHome({ post_data, lang }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
       <Description className="mb-16" lang={lang} />
       <div>
         <div className="">

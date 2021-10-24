@@ -83,7 +83,7 @@ export default function Layout({
           // set_dark_mode={set_dark_mode}
         />
       </header>
-      <main className="mx-auto border border-blue-500">{children}</main>
+      <main className="mx-auto">{children}</main>
       {!home && <div className="">{get_back_to_home_link(lang)}</div>}
     </div>
   );

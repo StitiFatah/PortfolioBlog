@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Date from "./dates";
 import Layout from "./layout";
@@ -5,8 +6,15 @@ import style from "../styles//utils.module.css";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Remarkable } from "remarkable";
 
 export default function CommonPost({ post_data, lang }) {
+  React.useEffect(() => {
+    var md = new Remarkable();
+
+    console.log(md.render(post_data.contentMarkdown));
+  }, [post_data]);
+
   return (
     <>
       <Head>

@@ -58,13 +58,10 @@ export default function Layout({
   // set_dark_mode,
 }) {
   return (
-    <div className=" mx-auto w-11/12  md:w-1/2">
+    <div className="w-11/12 mx-auto md:w-3/4 lg:w-2/3 ">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Stiti Fatah's protfolio and blog"
-        />
+        <meta name="description" content="Stiti Fatah's protfolio and blog" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -83,7 +80,7 @@ export default function Layout({
           // set_dark_mode={set_dark_mode}
         />
       </header>
-      <main className="mx-auto">{children}</main>
+      <main className="">{children}</main>
       {!home && <div className="">{get_back_to_home_link(lang)}</div>}
     </div>
   );

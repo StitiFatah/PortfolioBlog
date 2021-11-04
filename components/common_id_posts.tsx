@@ -6,14 +6,15 @@ import style from "../styles//utils.module.css";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import TitleIndexs from "./title_indexs";
 
 export default function CommonPost({ post_data, lang }) {
-  React.useEffect(() => {
-    const h2s: any[] = document.querySelectorAll("h2");
-    for (let element of h2s) {
-      console.log(element.innerText);
-    }
-  }, []);
+  //React.useEffect(() => {
+  //const h2s: any[] = document.querySelectorAll("h2");
+  //for (let element of h2s) {
+  //console.log(element.innerText);
+  //}
+  //}, []);
 
   return (
     <>
@@ -33,6 +34,11 @@ export default function CommonPost({ post_data, lang }) {
             dateString={post_data.date}
           />
         </div>
+
+        <div className="mb-4">
+          <TitleIndexs />
+        </div>
+
         {/* <div dangerouslySetInnerHTML={{ __html: post_data.contentHtml }} /> */}
         <ReactMarkdown
           linkTarget="_blank"

@@ -31,14 +31,9 @@ export default function CommonPost({ post_data, lang }) {
       <div
         className=" prose md:prose-md lg:prose-lg 
           dark:prose-dark max-w-none w-full
-          flex flex-col md:flex-row-reverse  md:justify-between
+          md:flex md:flex-row md:justify-between
           "
       >
-        {hasTitles() && (
-          <div className="mb-4 w-full md:w-1/3 md:ml-4">
-            <TableContent titleList={titleList} />
-          </div>
-        )}
         <div
           className={`
          w-full mb-4 
@@ -55,6 +50,12 @@ export default function CommonPost({ post_data, lang }) {
               {hasTitles() ? "has titles" : "no titles"} {titleList.length}
             </span>
           </div>
+
+          {hasTitles() && (
+            <div className="block md:hidden my-4 w-full ">
+              <TableContent titleList={titleList} />
+            </div>
+          )}
 
           {/* <div dangerouslySetInnerHTML={{ __html: post_data.contentHtml }} /> */}
           <ReactMarkdown
@@ -74,6 +75,11 @@ export default function CommonPost({ post_data, lang }) {
             {post_data.contentMarkdown}
           </ReactMarkdown>
         </div>
+        {hasTitles() && (
+          <div className="hidden md:block mb-4 w-1/3 ml-4">
+            <TableContent titleList={titleList} />
+          </div>
+        )}
       </div>
     </>
   );

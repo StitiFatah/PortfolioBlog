@@ -8,20 +8,69 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import TableContent from "./table_content";
 
+const nextUntil = (elem, selector, filter) => {
+  elem = elem.nextElementSibling;
+  const siblings_list = [];
+
+  while (elem) {
+    if (elem.matches(selector)) {
+      break;
+    }
+
+    if (filter) {
+      if (elem.matches(filter)) {
+        siblings_list.push(elem);
+      }
+    } else {
+      siblings_list.push(elem);
+    }
+
+    elem = elem.nextElementSibling;
+  }
+
+  return siblings_list;
+};
+
 export default function CommonPost({ post_data, lang }) {
-  const [titleList, setTitleList] = React.useState([]);
+  const [titleList, setTitleList] = React.useState({});
 
   React.useEffect(() => {
     const h2s: HTMLHeadingElement[] = [...document.querySelectorAll("h2")];
 
     for (let i = 0; i < h2s.length; i++) {
-      titleList.push(h2s[i].innerText);
-      setTitleList([...titleList]);
+      // titleList.push(h2s[i].innerText);
+      const h2Innertext = h2s[i].innerText;
+      // titleList.push({ h2Innertext: null });
+      // setTitleList([...titleList]);
+
+      titleList[h2Innertext] = [];
+      setTitleList({ ...titleList });
+
       h2s[i].id = `h2-${i.toString()}`;
+    }
+
+    for (let i = 0; i < h2s.length; i++) {
+      const h2Innertext = h2s[i].innerText;
+
+      let siblings;
+
+      if (i < h2s.length - 1) {
+        siblings = nextUntil(
+          document.querySelector(`#h2-${i}`),
+          `#h2-${i + 1}`,
+          "h3"
+        );
+      } else {
+        siblings = [...document.querySelectorAll(`#h2-${i} ~ h3`)];
+      }
+      for (let y = 0; y < siblings.length; y++) {
+        titleList[h2Innertext].push(siblings[y].innerText);
+        siblings[y].id = `h2-${i}-h3-${y}`;
+      }
     }
   }, []);
 
-  const hasTitles = () => (titleList.length > 0 ? true : false);
+  const hasTitles = () => (Object.keys(titleList).length > 0 ? true : false);
 
   return (
     <>

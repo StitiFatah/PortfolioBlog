@@ -9,10 +9,29 @@ export default function TableContent({ titleList }) {
       // style={{ position: "sticky", top: "20px" }}
     >
       <div className="flex flex-col">
-        {titleList.map((elem, index) => (
-          <a key={index} className="my-2" href={`#h2-${index.toString()}`}>
-            {elem}
-          </a>
+        {Object.keys(titleList).map((elemh2, indexh2) => (
+          <>
+            {
+              <>
+                <a
+                  key={indexh2}
+                  className="my-2"
+                  href={`#h2-${indexh2.toString()}`}
+                >
+                  {elemh2}
+                </a>
+                {titleList[elemh2].map((elemh3, indexh3) => (
+                  <a
+                    key={indexh3}
+                    className="text-sm"
+                    href={`#h2-${indexh2.toString()}-h3-${indexh3.toString()} `}
+                  >
+                    {elemh3}
+                  </a>
+                ))}
+              </>
+            }
+          </>
         ))}
       </div>
     </div>

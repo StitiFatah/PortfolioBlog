@@ -46,9 +46,6 @@ export default function CommonPost({ post_data, lang }) {
               className={`${style.PostDateTime} text-gray-700 dark:text-green-200 `}
               dateString={post_data.date}
             />
-            <span>
-              {hasTitles() ? "has titles" : "no titles"} {titleList.length}
-            </span>
           </div>
 
           {hasTitles() && (

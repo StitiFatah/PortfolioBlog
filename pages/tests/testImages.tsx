@@ -12,7 +12,10 @@ export default function Home() {
       />
       <p>Welcome to my homepage!</p>
       <h1> Not Optimized</h1>
-      <img src="https://dghost.archeroe.xyz/test-isr/" alt="bicycle" />
+      <img
+        src="https://dghost.archeroe.xyz/content/images/size/w2000/2021/11/course.png"
+        alt="bicycle"
+      />
     </>
   );
 }

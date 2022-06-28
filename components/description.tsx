@@ -10,11 +10,11 @@ export default function Description({
   className?: string;
 }) {
   const descriptions = {
-    fr: ` Bonjour c'est Fatah, développeur fullstack autodidacte et linux
+    fr: ` Bonjour c'est Fatah, développeur fullstack et linux
         enthousiate qui développe actuellement sous Django et React ! Vous pouvez voir ci-dessous certains de mes projets.
         `,
 
-    en: `Hello I'm Fatah, a self taught full stack software developper and  linux enthusiast
+    en: `Hello I'm Fatah, a full stack software developper and  linux enthusiast
         who loves Django and React ! I'll be describing some of my coding projects here.
         `,
   };
@@ -31,7 +31,7 @@ export default function Description({
         />
       </div>
 
-      <div className="font-semibold dark:text-white text-center">
+      <div className="font-semibold text-center dark:text-white">
         {descriptions[lang]}
         <div>
           Github :{" "}
